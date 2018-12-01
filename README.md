@@ -1,4 +1,4 @@
-# react-components-2
+# awesome-react-components
 React Components created with new React APIs for best performance.
 
 
