@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "tslint:recommended", "tslint-react", "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts"
+    ]
+  },
+  "rules": {
+    "no-debugger": false,
+    "no-consecutive-blank-lines": false,
+    "no-shadowed-variable": false,
+    "comment-format": [true, "check-space"],
+    "import-blacklist": true,
+    "interface-name": true,
+    "max-line-length": [true, 120],
+    "member-access": false,
+    "member-ordering": [true, { "order": "fields-first" }],
+    "no-inferrable-types": true,
+    "no-invalid-this": [true, "check-function-in-method"],
+    "no-namespace": false,
+    "no-null-keyword": false,
+    "no-require-imports": false,
+    "no-this-assignment": [true, { "allow-destructring": true }],
+    "no-trailing-whitespace": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "object-literal-shorthand": true,
+    "one-variable-per-declaration": [false],
+    "only-arrow-functions": [true, "allow-declarations"],
+    "prefer-template": [true, "allow-single-concat"],
+    "quotemark": [true, "single", "jsx-double"],
+    "semicolon": false,
+    "space-before-function-paren": true,
+    "trailing-comma": [ true,{ "singleline": "never", "multiline": "always" }],
+    "eofline": false,
+    "triple-equals": [true, "allow-null-check"]
+  }
+}
