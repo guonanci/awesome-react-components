@@ -8,6 +8,7 @@
     ]
   },
   "rules": {
+    "no-empty": false,
     "no-debugger": false,
     "no-consecutive-blank-lines": false,
     "no-shadowed-variable": false,
@@ -33,7 +34,7 @@
     "quotemark": [true, "single", "jsx-double"],
     "semicolon": false,
     "space-before-function-paren": true,
-    "trailing-comma": [ true,{ "singleline": "never", "multiline": "always" }],
+    "trailing-comma": [true, { "singleline": "never", "multiline": "always" }],
     "eofline": false,
     "triple-equals": [true, "allow-null-check"]
   }

@@ -5,3 +5,9 @@ references:
     docker:
       - image: circleci/node:8
     working_directory: ~/awesome-react-components
+
+  attach_workspace: &attach_workspace
+      attach_workspace:
+          at: ~/awesome-react-components
+
+  install_react: &install_react
