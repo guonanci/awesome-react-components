@@ -33,7 +33,7 @@
     "prefer-template": [true, "allow-single-concat"],
     "quotemark": [true, "single", "jsx-double"],
     "semicolon": false,
-    "space-before-function-paren": true,
+    "space-before-function-paren": [true, "never"],
     "trailing-comma": [true, { "singleline": "never", "multiline": "always" }],
     "eofline": false,
     "triple-equals": [true, "allow-null-check"]

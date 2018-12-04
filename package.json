@@ -1,5 +1,5 @@
 {
-  "name": "awesome-react-components",
+  "name": "arc",
   "version": "0.0.3",
   "description": "React Components created with new React APIs for best performance.",
   "homepage": "https://guonanci.github.io/awesome-react-components",
@@ -7,7 +7,8 @@
     "awesome-react-components",
     "react-components",
     "awesome-react",
-    "react-typescript-components"
+    "react-typescript-components",
+    "arc"
   ],
   "author": "guonanci <yiminanci@gmail.com>",
   "license": "MIT",
@@ -53,10 +54,13 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.12",
     "@types/prop-types": "^15.5.6",
     "@types/react": "^16.7.11",
     "@types/react-dom": "^16.0.11",
     "@types/react-intl": "^2.3.14",
+    "@types/react-motion": "^0.0.27",
     "@types/react-slick": "^0.23.2",
     "commander": "^2.19.0",
     "cross-env": "^5.2.0",
