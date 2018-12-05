@@ -12,14 +12,19 @@ function getUuid() {
   return `arcNotification_${now}_${seed++}`
 }
 export interface INotificationProps {
-  prefixCls: string
+  prefixCls?: string
   transitionName: string
-  animation: string | object
+  animation?: string | object
   style: any
-  className: string
+  className?: string
   maxCount: number
-  closeIcon: React.ReactNode
+  closeIcon?: React.ReactNode
 }
+export interface IInstanceProperties extends INotificationProps {
+  getContainer: () => HTMLElement,
+}
+export type IInstanceCB = (instance: any) => void
+
 export interface INoticeElm {
   key: string
   updateKey: string
@@ -29,6 +34,9 @@ export interface INoticeElm {
 }
 export interface INotificationState {
   notices: INoticeElm[],
+}
+export interface INotification {
+  newInstance: () => any
 }
 
 class Notification extends React.Component<INotificationProps, INotificationState> {
@@ -42,6 +50,36 @@ class Notification extends React.Component<INotificationProps, INotificationStat
   }
   state: INotificationState = {
     notices: [],
+  }
+  static newInstance = (properties: IInstanceProperties, cb: IInstanceCB) => {
+    const { getContainer, ...props } = properties
+    const div = document.createElement('div')
+    if (getContainer) {
+      const root = getContainer()
+      root.appendChild(div)
+    } else {
+      document.body.appendChild(div)
+    }
+
+    let called = false
+    function ref(notification: any) {
+      if (called) return
+      called = true
+      cb({
+        notice(noticeProps: any) {
+          notification.add(noticeProps)
+        },
+        removeNotice(key: any) {
+          notification.remove(key)
+        },
+        component: notification,
+        destroy() {
+          ReactDOM.unmountComponentAtNode(div)
+          div.parentNode!.removeChild(div)
+        },
+      })
+    }
+    ReactDOM.render(<Notification {...props} ref={ref} />, div)
   }
   getTransitionName = () => {
     const props = this.props
@@ -104,7 +142,7 @@ class Notification extends React.Component<INotificationProps, INotificationStat
       )
     })
     const className = {
-      [props.prefixCls]: 1,
+      [props.prefixCls!]: 1,
       [props.className]: !!props.className,
     }
     return (
@@ -114,4 +152,6 @@ class Notification extends React.Component<INotificationProps, INotificationStat
     )
   }
 }
+
+
 export default Notification

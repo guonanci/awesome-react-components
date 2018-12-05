@@ -13,3 +13,8 @@ defaultProps
 pref arrow functions to express class methods
 
 seconds or milliseconds
+
+
+Property 'newInstance' does not exist on type 'typeof Notification'.ts(2339)
+
+react-icons

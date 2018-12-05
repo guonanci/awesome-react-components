@@ -4,7 +4,7 @@ import classNames from 'classnames'
 export interface INoticeProp {
   closable: boolean,
   className?: string,
-  prefixCls: string,
+  prefixCls?: string,
   duration?: number,
   onClose: () => any,
   onClick: () => any,
@@ -42,18 +42,18 @@ export default class Notice extends React.Component<INoticeProp, INoticeState> {
   }
   startCloseTimer = () => {
     if (this.props.duration) {
-      const closeTimer = setTimeout(() => this.close(), this.props.duration! * 1000)
-      // this.setState((state, props) => ({
-      //   closeTimer,
-      // }))
+      const closeTimer = Number(setTimeout(() => this.close(), this.props.duration! * 1000))
+      this.setState((state, props) => ({
+        closeTimer,
+      }))
     }
   }
   clearCloseTimer = () => {
     if (this.state.closeTimer) {
       clearTimeout(this.state.closeTimer)
-      // this.setState((state, props) => ({
-      //   closeTimer: null
-      // }))
+      this.setState((state, props) => ({
+        closeTimer: 0,
+      }))
     }
   }
   restartCloseTimer = () => {
