@@ -8,6 +8,7 @@
     ]
   },
   "rules": {
+    "no-unused-expression": false,
     "curly": [true, "ignore-same-line"],
     "no-empty": false,
     "no-debugger": false,
