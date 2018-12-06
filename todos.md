@@ -18,3 +18,9 @@ seconds or milliseconds
 Property 'newInstance' does not exist on type 'typeof Notification'.ts(2339)
 
 react-icons
+
+
+Element implicitly has an 'any' type because type '{ open: (args: IArgsProps) => IMsgType; config(options: IConfigOptions): void; destroy(): void; }' has no index signature.ts(7017)
+
+
+Left side of comma operator is unused and has no side effects.ts(2695)

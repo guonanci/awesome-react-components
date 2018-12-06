@@ -11,4 +11,4 @@ if (ENV !== 'production' &&
       `app bundle size.`
     )
   }
-  // import { default as msg } from './Msg'
+  export { default as msg } from './Msg'

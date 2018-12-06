@@ -111,10 +111,13 @@ export interface IApi {
   open: (props: IArgsProps) => IMsgType
   config: (options: IConfigOptions) => any
   destroy: () => any
-  // [key: string]: any // Add index signature
+  [key: string]: any // Add index signature
+}
+export interface IAPI {
+  [key:string]: any
 }
 
-const api: any = {
+const api = {
   open: notice,
   config(options: IConfigOptions) {
     if (options.top !== undefined) {
@@ -145,9 +148,9 @@ const api: any = {
       msgInstance = null
     }
   },
-}
+} as any
 
-['success', 'info', 'warning', 'error'].forEach((type: string) => {
+['success', 'info', 'warning', 'error'].forEach((type: NoticeType) => {
   api[type] = (content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) => {
     if (typeof duration === 'function') {
       onClose = duration
